@@ -22,10 +22,16 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Text(text = "Fist change")
+                    Text(text = "Fist change", style = MaterialTheme.typography.bodySmall)
                 }
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun Font() {
+    Text(text = "Fist change", style = MaterialTheme.typography.labelSmall)
 }
 
