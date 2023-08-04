@@ -5,7 +5,7 @@ plugins {
     id ("kotlin-kapt")
     id ("dagger.hilt.android.plugin")
 //    id ("com.google.gms.google-services")
-    id ("com.google.devtools.ksp") version "1.7.20-1.0.8"
+    id ("com.google.devtools.ksp") version "1.8.20-1.0.10"
 }
 
 android {
@@ -35,23 +35,28 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.4.6"
     }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+//    applicationVariants.all {
+//        addJavaSourceFoldersToModel(
+//            File(buildDir, "generated/ksp/$name/kotlin")
+//        )
+//    }
 }
 
 dependencies {
@@ -74,18 +79,16 @@ dependencies {
 
     implementation(libs.androidx.core.splashscreen)
 
-    implementation ("androidx.compose.material3:material3:1.0.1")
-
     implementation ("androidx.navigation:navigation-compose:2.7.0-rc01")
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
 
-    implementation ("androidx.room:room-runtime:2.5.0")
-    kapt ("androidx.room:room-compiler:2.5.0")
-    implementation ("androidx.room:room-ktx:2.5.0")
+    implementation ("androidx.room:room-runtime:2.5.2")
+    kapt ("androidx.room:room-compiler:2.5.2")
+    implementation ("androidx.room:room-ktx:2.5.2")
 
-    implementation ("io.github.raamcosta.compose-destinations:core:1.7.27-beta")
-    implementation ("io.github.raamcosta.compose-destinations:animations-core:1.7.27-beta")
-    ksp ("io.github.raamcosta.compose-destinations:ksp:1.7.27-beta")
+    implementation ("io.github.raamcosta.compose-destinations:core:1.8.42-beta")
+    implementation ("io.github.raamcosta.compose-destinations:animations-core:1.8.42-beta")
+    ksp ("io.github.raamcosta.compose-destinations:ksp:1.8.42-beta")
 
     implementation ("com.google.dagger:hilt-android:2.47")
     kapt ("com.google.dagger:hilt-compiler:2.44.2")
