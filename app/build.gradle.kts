@@ -2,6 +2,10 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    id ("kotlin-kapt")
+    id ("dagger.hilt.android.plugin")
+//    id ("com.google.gms.google-services")
+    id ("com.google.devtools.ksp") version "1.7.20-1.0.8"
 }
 
 android {
@@ -69,4 +73,44 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
 
     implementation(libs.androidx.core.splashscreen)
+
+    implementation ("androidx.compose.material3:material3:1.0.1")
+
+    implementation ("androidx.navigation:navigation-compose:2.7.0-rc01")
+    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    implementation ("androidx.room:room-runtime:2.5.0")
+    kapt ("androidx.room:room-compiler:2.5.0")
+    implementation ("androidx.room:room-ktx:2.5.0")
+
+    implementation ("io.github.raamcosta.compose-destinations:core:1.7.27-beta")
+    implementation ("io.github.raamcosta.compose-destinations:animations-core:1.7.27-beta")
+    ksp ("io.github.raamcosta.compose-destinations:ksp:1.7.27-beta")
+
+    implementation ("com.google.dagger:hilt-android:2.47")
+    kapt ("com.google.dagger:hilt-compiler:2.44.2")
+
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4")
+
+//    implementation ("com.google.firebase:firebase-bom:29.0.4")
+//    implementation ("com.google.firebase:firebase-firestore-ktx")
+//    implementation ("com.google.firebase:firebase-auth-ktx")
+//    implementation ("com.google.firebase:firebase-storage-ktx:20.1.0")
+//    implementation ("com.google.android.gms:play-services-auth:20.4.1")
+
+    implementation ("com.google.accompanist:accompanist-permissions:0.28.0")
+    implementation ("com.google.accompanist:accompanist-insets:0.28.0")
+    implementation ("com.google.accompanist:accompanist-swiperefresh:0.28.0")
+
+//    implementation 'androidx.preference:preference-ktx:1.2.0'
+
+//    implementation "com.github.skydoves:landscapist-glide:1.5.0"
+
+    implementation ("com.airbnb.android:lottie-compose:6.0.1")
+
+    implementation ("androidx.camera:camera-core:1.2.1")
+    implementation ("androidx.camera:camera-camera2:1.2.1")
+    implementation ("androidx.camera:camera-lifecycle:1.2.1")
+    implementation ("androidx.camera:camera-view:1.0.0-alpha29")
 }
