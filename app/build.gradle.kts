@@ -52,11 +52,6 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-//    applicationVariants.all {
-//        addJavaSourceFoldersToModel(
-//            File(buildDir, "generated/ksp/$name/kotlin")
-//        )
-//    }
 }
 
 dependencies {
@@ -79,22 +74,33 @@ dependencies {
 
     implementation(libs.androidx.core.splashscreen)
 
-    implementation ("androidx.navigation:navigation-compose:2.7.0-rc01")
-    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation (libs.androidx.navigation.compose)
+    implementation (libs.androidx.hilt.navigation.compose)
 
-    implementation ("androidx.room:room-runtime:2.5.2")
-    kapt ("androidx.room:room-compiler:2.5.2")
-    implementation ("androidx.room:room-ktx:2.5.2")
+    implementation (libs.androidx.room.runtime)
+    kapt (libs.androidx.room.compiler)
+    implementation (libs.androidx.room.ktx)
 
-    implementation ("io.github.raamcosta.compose-destinations:core:1.8.42-beta")
-    implementation ("io.github.raamcosta.compose-destinations:animations-core:1.8.42-beta")
-    ksp ("io.github.raamcosta.compose-destinations:ksp:1.8.42-beta")
+    implementation (libs.core)
+    implementation (libs.animations.core)
+    ksp (libs.ksp)
 
-    implementation ("com.google.dagger:hilt-android:2.47")
-    kapt ("com.google.dagger:hilt-compiler:2.44.2")
+    implementation (libs.hilt.android)
+    kapt (libs.hilt.compiler)
 
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4")
+    implementation (libs.kotlinx.coroutines.android)
+    implementation (libs.kotlinx.coroutines.play.services)
+
+    implementation (libs.accompanist.permissions)
+    implementation (libs.accompanist.insets)
+    implementation (libs.accompanist.swiperefresh)
+
+    implementation (libs.lottie.compose)
+
+    implementation (libs.androidx.camera.core)
+    implementation (libs.androidx.camera.camera2)
+    implementation (libs.androidx.camera.lifecycle)
+    implementation (libs.androidx.camera.view)
 
 //    implementation ("com.google.firebase:firebase-bom:29.0.4")
 //    implementation ("com.google.firebase:firebase-firestore-ktx")
@@ -102,18 +108,7 @@ dependencies {
 //    implementation ("com.google.firebase:firebase-storage-ktx:20.1.0")
 //    implementation ("com.google.android.gms:play-services-auth:20.4.1")
 
-    implementation ("com.google.accompanist:accompanist-permissions:0.28.0")
-    implementation ("com.google.accompanist:accompanist-insets:0.28.0")
-    implementation ("com.google.accompanist:accompanist-swiperefresh:0.28.0")
-
 //    implementation 'androidx.preference:preference-ktx:1.2.0'
 
 //    implementation "com.github.skydoves:landscapist-glide:1.5.0"
-
-    implementation ("com.airbnb.android:lottie-compose:6.0.1")
-
-    implementation ("androidx.camera:camera-core:1.2.1")
-    implementation ("androidx.camera:camera-camera2:1.2.1")
-    implementation ("androidx.camera:camera-lifecycle:1.2.1")
-    implementation ("androidx.camera:camera-view:1.0.0-alpha29")
 }
