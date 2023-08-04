@@ -10,12 +10,12 @@ plugins {
 
 android {
     namespace = "cd.wayupdotdev.uza"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "cd.wayupdotdev.uza"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
