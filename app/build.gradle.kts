@@ -78,7 +78,7 @@ dependencies {
     implementation (libs.androidx.hilt.navigation.compose)
 
     implementation (libs.androidx.room.runtime)
-    kapt (libs.androidx.room.compiler)
+    ksp (libs.androidx.room.compiler)
     implementation (libs.androidx.room.ktx)
 
     implementation (libs.core)
@@ -94,6 +94,9 @@ dependencies {
     implementation (libs.accompanist.permissions)
     implementation (libs.accompanist.insets)
     implementation (libs.accompanist.swiperefresh)
+    implementation (libs.accompanist.pager)
+
+    implementation (libs.androidx.material.icons.extended)
 
     implementation (libs.lottie.compose)
 
