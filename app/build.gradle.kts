@@ -102,6 +102,9 @@ dependencies {
     implementation (libs.androidx.camera.lifecycle)
     implementation (libs.androidx.camera.view)
 
+
+    implementation (libs.androidx.datastore.preferences)
+
 //    implementation ("com.google.firebase:firebase-bom:29.0.4")
 //    implementation ("com.google.firebase:firebase-firestore-ktx")
 //    implementation ("com.google.firebase:firebase-auth-ktx")

@@ -5,6 +5,7 @@ camera-core = "1.2.1"
 camera-view = "1.0.0-alpha29"
 core = "1.8.42-beta"
 core-splashscreen = "1.0.1"
+datastore-preferences = "1.1.0-alpha04"
 hilt-android = "2.47"
 hilt-compiler = "2.44.2"
 hilt-navigation-compose = "1.0.0"
@@ -30,6 +31,7 @@ androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "
 androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camera-core" }
 androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "camera-view" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "core-splashscreen" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore-preferences" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-runtime" }
