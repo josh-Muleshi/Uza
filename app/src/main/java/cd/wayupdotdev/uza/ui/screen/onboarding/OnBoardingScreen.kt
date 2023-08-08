@@ -37,15 +37,17 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
+import com.ramcosta.composedestinations.annotation.Destination
 
 @OptIn(ExperimentalPagerApi::class)
+@Destination
 @Composable
 fun OnBoardingScreen() {
     val items = ArrayList<OnBoardingData>()
 
     items.add(
         OnBoardingData(
-            R.drawable.logo_1,
+            R.raw.animation_lkxsd833,
             "Shop Awesome Products",
             "We have products in different categories including Apparels, Electronics, Accessories, Footwear etc."
         )
@@ -53,7 +55,7 @@ fun OnBoardingScreen() {
 
     items.add(
         OnBoardingData(
-            R.drawable.logo_2,
+            R.raw.animation_lkxsfgrv,
             "One Day Delivery",
             "Our delivery team around the clock to provide you the products fast and securely."
         )
@@ -61,7 +63,7 @@ fun OnBoardingScreen() {
 
     items.add(
         OnBoardingData(
-            R.drawable.logo_3,
+            R.raw.animation_lkxsh3xv,
             "Amazing Customer Support",
             "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface."
         )
