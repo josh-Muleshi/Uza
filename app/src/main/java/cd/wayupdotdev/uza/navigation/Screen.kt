@@ -10,11 +10,11 @@ import com.ramcosta.composedestinations.spec.Direction
 
 sealed class Screen(val destination: Direction, val route: String = destination.route, val label: String = "", val icon: ImageVector? = null){
     object Home : Screen(destination = HomeScreenDestination, label = "Accueil", icon = Icons.Default.Home)
-    object Add : Screen(destination = AddScreenDestination, label = "Post" , icon = Icons.Default.Add)
-    object Browse : Screen(destination = BrowseScreenDestination, label = "Profile",icon = Icons.Default.BrowseGallery)
+    object Add : Screen(destination = AddScreenDestination, label = "Ajouter" , icon = Icons.Default.Add)
+    object Browse : Screen(destination = BrowseScreenDestination, label = "Recherche",icon = Icons.Default.Search)
 }
 
 fun getBottomNavItems(): List<Screen> {
-    return listOf(Screen.Home, Screen.Browse)
+    return listOf(Screen.Home, Screen.Add, Screen.Browse)
 }
 
