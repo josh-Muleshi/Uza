@@ -4,11 +4,15 @@ import cd.wayupdotdev.destinations.AddScreenDestination
 import cd.wayupdotdev.destinations.BrowseScreenDestination
 import cd.wayupdotdev.destinations.HomeScreenDestination
 import cd.wayupdotdev.destinations.MainScreenDestination
+import cd.wayupdotdev.destinations.ProfileScreenDestination
+import cd.wayupdotdev.destinations.SettingsScreenDestination
 import com.ramcosta.composedestinations.spec.DestinationSpec
 import com.ramcosta.composedestinations.spec.NavGraphSpec
 import com.ramcosta.composedestinations.spec.Route
 
 private val destinationsList = listOf(
+    ProfileScreenDestination,
+    SettingsScreenDestination,
     AddScreenDestination,
     HomeScreenDestination,
     BrowseScreenDestination,

@@ -9,7 +9,14 @@ package cd.wayupdotdev.mytown.presentation.screen.home.view
 //import androidx.compose.material.Scaffold
 //import androidx.compose.material.icons.Icons
 //import androidx.compose.material.icons.filled.Settings
+import android.app.Activity
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
+import cd.wayupdotdev.destinations.ProfileScreenDestination
+import cd.wayupdotdev.destinations.SettingsScreenDestination
+import cd.wayupdotdev.uza.ui.screen.home.component.BarScreenItem
 //import androidx.compose.runtime.collectAsState
 //import androidx.compose.runtime.getValue
 //import androidx.compose.ui.Alignment
@@ -27,8 +34,26 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Destination
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navigator: DestinationsNavigator){
+    val context = LocalContext.current
 
+    BackHandler {
+        (context as? Activity)?.finish()
+    }
+
+    LazyColumn(content = {
+        item {
+            BarScreenItem(
+                onProfileBtnClicked = { navigator.navigate(ProfileScreenDestination) },
+                onNotificationBtnClicked = {},
+                onSettingsBtnClicked = { navigator.navigate(SettingsScreenDestination) }
+            )
+        }
+
+        item {
+
+        }
+    })
 }
 //fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hiltViewModel()) {
 //
