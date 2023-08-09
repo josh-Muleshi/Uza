@@ -1,11 +1,13 @@
 package cd.wayupdotdev.uza.navigation
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.ui.graphics.vector.ImageVector
-import cd.wayupdotdev.destinations.AddScreenDestination
-import cd.wayupdotdev.destinations.BrowseScreenDestination
-import cd.wayupdotdev.destinations.HomeScreenDestination
+import cd.wayupdotdev.uza.destinations.AddScreenDestination
+import cd.wayupdotdev.uza.destinations.BrowseScreenDestination
+import cd.wayupdotdev.uza.destinations.HomeScreenDestination
 import com.ramcosta.composedestinations.spec.Direction
 
 sealed class Screen(val destination: Direction, val route: String = destination.route, val label: String = "", val icon: ImageVector? = null){

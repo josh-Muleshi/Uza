@@ -1,11 +1,11 @@
 package cd.wayupdotdev.uza.navigation
 
-import cd.wayupdotdev.destinations.AddScreenDestination
-import cd.wayupdotdev.destinations.BrowseScreenDestination
-import cd.wayupdotdev.destinations.HomeScreenDestination
-import cd.wayupdotdev.destinations.MainScreenDestination
-import cd.wayupdotdev.destinations.ProfileScreenDestination
-import cd.wayupdotdev.destinations.SettingsScreenDestination
+import cd.wayupdotdev.uza.destinations.AddScreenDestination
+import cd.wayupdotdev.uza.destinations.BrowseScreenDestination
+import cd.wayupdotdev.uza.destinations.HomeScreenDestination
+import cd.wayupdotdev.uza.destinations.MainScreenDestination
+import cd.wayupdotdev.uza.destinations.ProfileScreenDestination
+import cd.wayupdotdev.uza.destinations.SettingsScreenDestination
 import com.ramcosta.composedestinations.spec.DestinationSpec
 import com.ramcosta.composedestinations.spec.NavGraphSpec
 import com.ramcosta.composedestinations.spec.Route

@@ -1,7 +1,7 @@
 package cd.wayupdotdev.uza.navigation
 
-import cd.wayupdotdev.destinations.MainScreenDestination
-import cd.wayupdotdev.destinations.OnBoardingScreenDestination
+import cd.wayupdotdev.uza.destinations.MainScreenDestination
+import cd.wayupdotdev.uza.destinations.OnBoardingScreenDestination
 import com.ramcosta.composedestinations.spec.DestinationSpec
 import com.ramcosta.composedestinations.spec.NavGraphSpec
 import com.ramcosta.composedestinations.spec.Route

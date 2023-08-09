@@ -28,12 +28,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import cd.wayupdotdev.destinations.HomeScreenDestination
+import cd.wayupdotdev.uza.destinations.HomeScreenDestination
 import cd.wayupdotdev.uza.ui.theme.ItemGray
 import cd.wayupdotdev.uza.ui.theme.Purple80
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.navigate
+
 
 @Destination
 @Composable

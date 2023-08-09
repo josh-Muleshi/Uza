@@ -1,4 +1,4 @@
-package cd.wayupdotdev.mytown.presentation.screen.home.view
+package cd.wayupdotdev.uza.ui.screen.home.view
 
 //import android.app.Activity
 //import android.widget.Toast
@@ -14,8 +14,8 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import cd.wayupdotdev.destinations.ProfileScreenDestination
-import cd.wayupdotdev.destinations.SettingsScreenDestination
+import cd.wayupdotdev.uza.destinations.ProfileScreenDestination
+import cd.wayupdotdev.uza.destinations.SettingsScreenDestination
 import cd.wayupdotdev.uza.ui.screen.home.component.BarScreenItem
 //import androidx.compose.runtime.collectAsState
 //import androidx.compose.runtime.getValue
