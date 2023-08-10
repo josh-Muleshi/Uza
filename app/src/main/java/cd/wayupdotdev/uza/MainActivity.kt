@@ -10,10 +10,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import cd.wayupdotdev.uza.navigation.MainScreen
-import cd.wayupdotdev.uza.navigation.SetupNavGraph
 import cd.wayupdotdev.uza.ui.theme.UzaTheme
 import cd.wayupdotdev.uza.ui.viewModel.SplashViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val viewModel: SplashViewModel by viewModels()
