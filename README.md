@@ -1,6 +1,6 @@
 <h1 align="center">Uza</h1><br>
 <p align="center">  
-bla bla bla
+it's an online sales application for all kinds of business, from clothing sales to household appliances to land sales.
 </p>
 <br>
 
