@@ -9,26 +9,26 @@ package cd.wayupdotdev.uza.ui.screen.home.view
 //import androidx.compose.material.Scaffold
 //import androidx.compose.material.icons.Icons
 //import androidx.compose.material.icons.filled.Settings
-import android.app.Activity
-import androidx.activity.compose.BackHandler
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
-import cd.wayupdotdev.uza.destinations.ProfileScreenDestination
-import cd.wayupdotdev.uza.destinations.SettingsScreenDestination
-import cd.wayupdotdev.uza.ui.screen.home.component.BarScreenItem
 //import androidx.compose.runtime.collectAsState
 //import androidx.compose.runtime.getValue
 //import androidx.compose.ui.Alignment
 //import androidx.compose.ui.Modifier
 //import androidx.compose.ui.platform.LocalContext
 //import androidx.hilt.navigation.compose.hiltViewModel
-//import cd.wayupdotdev.mytown.destinations.DetailScreenDestination
-//import cd.wayupdotdev.mytown.destinations.SettingScreenDestination
-//import cd.wayupdotdev.uza.ui.screen.home.business.HomeState
-//import cd.wayupdotdev.uza.ui.screen.home.business.HomeViewModel
-//import cd.wayupdotdev.mytown.presentation.screen.home.component.DisplayItShow
-//import cd.wayupdotdev.mytown.presentation.screen.home.component.TopPageBar
+import android.app.Activity
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
+import cd.wayupdotdev.uza.destinations.ProfileScreenDestination
+import cd.wayupdotdev.uza.destinations.SettingsScreenDestination
+import cd.wayupdotdev.uza.ui.screen.home.component.BarScreenItem
+import cd.wayupdotdev.uza.ui.screen.home.component.SearchBar
+import cd.wayupdotdev.uza.ui.screen.home.component.TabRaw
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -41,6 +41,9 @@ fun HomeScreen(navigator: DestinationsNavigator){
         (context as? Activity)?.finish()
     }
 
+    var selectedTabIndex by remember { mutableIntStateOf(0) }
+    val tabs = listOf("Tous", "vetements", "Montre", "Ordi", "Telephone")
+
     LazyColumn(content = {
         item {
             BarScreenItem(
@@ -51,7 +54,16 @@ fun HomeScreen(navigator: DestinationsNavigator){
         }
 
         item {
+            TabRaw(
+                tabs = tabs,
+                selectedTabIndex = selectedTabIndex,
+            ) { tabIndex ->
+                selectedTabIndex = tabIndex
+            }
+        }
 
+        item {
+            SearchBar(onSearch = {})
         }
     })
 }
