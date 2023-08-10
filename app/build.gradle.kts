@@ -114,10 +114,9 @@ dependencies {
 
     implementation(platform("com.google.firebase:firebase-bom:32.2.2"))
     implementation ("com.google.firebase:firebase-firestore-ktx")
-    implementation("com.google.firebase:firebase-firestorm-ktx")
     implementation ("com.google.firebase:firebase-auth-ktx")
     implementation ("com.google.firebase:firebase-storage-ktx")
-    implementation ("com.google.android.gms:play-services-auth")
+    implementation (libs.play.services.auth)
     implementation("com.google.firebase:firebase-analytics-ktx")
 
     implementation (libs.androidx.preference.ktx)

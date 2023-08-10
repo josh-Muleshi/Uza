@@ -25,7 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import cd.wayupdotdev.uza.destinations.ProfileScreenDestination
-import cd.wayupdotdev.uza.destinations.SettingsScreenDestination
+import cd.wayupdotdev.uza.destinations.SettingScreenDestination
 import cd.wayupdotdev.uza.ui.screen.home.component.BarScreenItem
 import cd.wayupdotdev.uza.ui.screen.home.component.SearchBar
 import cd.wayupdotdev.uza.ui.screen.home.component.TabRaw
@@ -49,7 +49,7 @@ fun HomeScreen(navigator: DestinationsNavigator){
             BarScreenItem(
                 onProfileBtnClicked = { navigator.navigate(ProfileScreenDestination) },
                 onNotificationBtnClicked = {},
-                onSettingsBtnClicked = { navigator.navigate(SettingsScreenDestination) }
+                onSettingsBtnClicked = { navigator.navigate(SettingScreenDestination) }
             )
         }
 

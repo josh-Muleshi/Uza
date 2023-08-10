@@ -1,21 +1,21 @@
 package cd.wayupdotdev.uza.navigation
 
-import cd.wayupdotdev.uza.destinations.AddScreenDestination
+import cd.wayupdotdev.uza.destinations.AboutScreenDestination
 import cd.wayupdotdev.uza.destinations.BrowseScreenDestination
 import cd.wayupdotdev.uza.destinations.HomeScreenDestination
 import cd.wayupdotdev.uza.destinations.MainScreenDestination
 import cd.wayupdotdev.uza.destinations.ProfileScreenDestination
-import cd.wayupdotdev.uza.destinations.SettingsScreenDestination
+import cd.wayupdotdev.uza.destinations.SettingScreenDestination
 import com.ramcosta.composedestinations.spec.DestinationSpec
 import com.ramcosta.composedestinations.spec.NavGraphSpec
 import com.ramcosta.composedestinations.spec.Route
 
 private val destinationsList = listOf(
     ProfileScreenDestination,
-    SettingsScreenDestination,
-    AddScreenDestination,
+    SettingScreenDestination,
     HomeScreenDestination,
     BrowseScreenDestination,
+    AboutScreenDestination,
     MainScreenDestination
 )
 

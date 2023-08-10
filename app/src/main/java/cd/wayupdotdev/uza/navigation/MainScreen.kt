@@ -60,7 +60,6 @@ fun MainScreen() {
               onClick = {
                   val intent = Intent(context, AddPostActivity::class.java)
                   context.startActivity(intent)
-//                  navController.navigate(getBottomNavItems()[1].destination)
               },
               backgroundColor = Purple80
           ) {
