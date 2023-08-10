@@ -2,6 +2,7 @@ package cd.wayupdotdev.uza.navigation
 
 import android.content.Intent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
@@ -87,7 +88,7 @@ fun MainScreen() {
                             },
                             icon = {
                                 if (screen.label != "Ajouter"){
-                                    Column {
+                                    Column(verticalArrangement = Arrangement.Top) {
                                         if (isSelected) {
                                             Icon(
                                                 imageVector = Icons.Default.Minimize,

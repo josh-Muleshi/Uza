@@ -34,7 +34,7 @@ fun BarScreenItem (onProfileBtnClicked: () -> Unit, onNotificationBtnClicked: ()
     )
     {
         Image(
-            painter = painterResource(id = R.drawable.logo_uza_three),
+            painter = painterResource(id = R.drawable.placeholder),
             contentDescription = "profile",
             modifier = Modifier
                 .size(45.dp)
