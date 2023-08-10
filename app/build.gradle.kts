@@ -5,7 +5,7 @@ plugins {
     id ("kotlin-kapt")
     id ("dagger.hilt.android.plugin")
     id ("com.google.gms.google-services")
-    id ("com.google.devtools.ksp") version "1.8.20-1.0.10"
+    id ("com.google.devtools.ksp") version "1.7.20-1.0.8"
 }
 
 android {
@@ -35,21 +35,29 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "1.8"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.6"
+        kotlinCompilerExtensionVersion = "1.3.2"
     }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
+
+    applicationVariants.all {
+        kotlin.sourceSets {
+            getByName(name) {
+                kotlin.srcDir("build/generated/ksp/$name/kotlin")
+            }
         }
     }
 }
@@ -109,8 +117,9 @@ dependencies {
     implementation (libs.androidx.camera.lifecycle)
     implementation (libs.androidx.camera.view)
 
-
     implementation (libs.androidx.datastore.preferences)
+
+    implementation(libs.accompanist.navigation.animation)
 
     implementation(platform("com.google.firebase:firebase-bom:32.2.2"))
     implementation ("com.google.firebase:firebase-firestore-ktx")
