@@ -122,5 +122,5 @@ dependencies {
 
     implementation (libs.androidx.preference.ktx)
 
-//    implementation "com.github.skydoves:landscapist-glide:1.5.0"
+    implementation ("com.github.skydoves:landscapist-glide:1.5.0")
 }
