@@ -2,8 +2,8 @@ package cd.wayupdotdev.uza.ui.screen.home.business
 
 //import androidx.lifecycle.ViewModel
 //import androidx.lifecycle.viewModelScope
-//import cd.wayupdotdev.mytown.data.model.Post
-//import cd.wayupdotdev.mytown.data.repository.PostRepoImpl
+//import cd.wayupdotdev.uza.data.model.Post
+//import cd.wayupdotdev.uza.data.repository.PostRepoImpl
 //import cd.wayupdotdev.uza.ui.screen.home.business.HomeState
 //import dagger.hilt.android.lifecycle.HiltViewModel
 //import kotlinx.coroutines.Dispatchers

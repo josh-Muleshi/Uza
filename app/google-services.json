@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "980583905737",
+    "project_id": "uza-v01",
+    "storage_bucket": "uza-v01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980583905737:android:c82036b49a31ed7469d018",
+        "android_client_info": {
+          "package_name": "cd.wayupdotdev.uza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980583905737-d1eet6cdt4bt6vnm3tmjeuo6h84bnap0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cd.wayupdotdev.uza",
+            "certificate_hash": "1875aac98977ce658cf723f0f8aa547a5abed323"
+          }
+        },
+        {
+          "client_id": "980583905737-3na6ltou2vtp5kjh7g49if2jta0ah414.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEmd8Ew72LlRY8VUjK6B7lFzGfDLNeFG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980583905737-3na6ltou2vtp5kjh7g49if2jta0ah414.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

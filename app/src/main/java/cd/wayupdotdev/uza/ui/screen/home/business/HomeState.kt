@@ -1,6 +1,6 @@
 package cd.wayupdotdev.uza.ui.screen.home.business
 
-//import cd.wayupdotdev.mytown.data.model.Post
+//import cd.wayupdotdev.uza.data.model.Post
 
 sealed class HomeState {
     object Uninitialized: HomeState()

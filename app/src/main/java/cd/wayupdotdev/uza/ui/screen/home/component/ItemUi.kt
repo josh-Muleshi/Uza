@@ -23,7 +23,7 @@ package cd.wayupdotdev.uza.ui.screen.home.component
 //import androidx.compose.ui.text.style.TextOverflow
 //import androidx.compose.ui.unit.dp
 //import androidx.compose.ui.unit.sp
-//import cd.wayupdotdev.mytown.data.model.Post
+//import cd.wayupdotdev.uza.data.model.Post
 //import cd.wayupdotdev.mytown.ui.theme.Black_camera
 //import cd.wayupdotdev.mytown.ui.theme.Black_ic
 //import cd.wayupdotdev.mytown.ui.theme.Purple200

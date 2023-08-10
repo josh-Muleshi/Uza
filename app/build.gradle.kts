@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlin.android)
     id ("kotlin-kapt")
     id ("dagger.hilt.android.plugin")
-//    id ("com.google.gms.google-services")
+    id ("com.google.gms.google-services")
     id ("com.google.devtools.ksp") version "1.8.20-1.0.10"
 }
 
@@ -112,13 +112,15 @@ dependencies {
 
     implementation (libs.androidx.datastore.preferences)
 
-//    implementation ("com.google.firebase:firebase-bom:29.0.4")
-//    implementation ("com.google.firebase:firebase-firestore-ktx")
-//    implementation ("com.google.firebase:firebase-auth-ktx")
-//    implementation ("com.google.firebase:firebase-storage-ktx:20.1.0")
-//    implementation ("com.google.android.gms:play-services-auth:20.4.1")
+    implementation(platform("com.google.firebase:firebase-bom:32.2.2"))
+    implementation ("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-firestorm-ktx")
+    implementation ("com.google.firebase:firebase-auth-ktx")
+    implementation ("com.google.firebase:firebase-storage-ktx")
+    implementation ("com.google.android.gms:play-services-auth")
+    implementation("com.google.firebase:firebase-analytics-ktx")
 
-//    implementation 'androidx.preference:preference-ktx:1.2.0'
+    implementation (libs.androidx.preference.ktx)
 
 //    implementation "com.github.skydoves:landscapist-glide:1.5.0"
 }

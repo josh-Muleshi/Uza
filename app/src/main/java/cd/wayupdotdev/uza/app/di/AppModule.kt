@@ -8,8 +8,8 @@ import androidx.camera.core.ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST
 import androidx.camera.core.ImageCapture.FLASH_MODE_ON
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.preference.PreferenceManager
-import cd.wayupdotdev.mytown.data.repository.CustomCameraRepoImpl
-import cd.wayupdotdev.mytown.domain.repository.CustomCameraRepo
+import cd.wayupdotdev.uza.data.repository.CustomCameraRepoImpl
+import cd.wayupdotdev.uza.domain.repository.CustomCameraRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
