@@ -1,5 +1,6 @@
 package cd.wayupdotdev.uza.navigation
 
+import android.content.Intent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -28,6 +29,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import cd.wayupdotdev.uza.AddPostActivity
 import cd.wayupdotdev.uza.destinations.HomeScreenDestination
 import cd.wayupdotdev.uza.ui.theme.ItemGray
 import cd.wayupdotdev.uza.ui.theme.Purple80
@@ -56,9 +58,9 @@ fun MainScreen() {
                   .padding(10.dp),
               shape = CircleShape,
               onClick = {
-//                  val intent = Intent(context, AddPostActivity::class.java)
-//                  context.startActivity(intent)
-                  navController.navigate(getBottomNavItems()[1].destination)
+                  val intent = Intent(context, AddPostActivity::class.java)
+                  context.startActivity(intent)
+//                  navController.navigate(getBottomNavItems()[1].destination)
               },
               backgroundColor = Purple80
           ) {
