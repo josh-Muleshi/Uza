@@ -8,7 +8,7 @@ package cd.wayupdotdev.uza.navigation
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
-//import cd.wayupdotdev.uza.destinations.AddScreenDestination
+import cd.wayupdotdev.uza.destinations.AddScreenDestination
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
@@ -24,7 +24,7 @@ fun AddPostScreen() {
     DestinationsNavHost(
         navGraph = AddPostNavGraph,
         startRoute = startRoute,
-        engine = engine,
+//        engine = engine,
         navController = navController
     )
 }

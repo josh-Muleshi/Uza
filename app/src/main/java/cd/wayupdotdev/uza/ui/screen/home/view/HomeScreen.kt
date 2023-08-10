@@ -20,15 +20,15 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import cd.wayupdotdev.uza.destinations.ProfileScreenDestination
 import cd.wayupdotdev.uza.destinations.SettingScreenDestination
 import cd.wayupdotdev.uza.ui.screen.home.component.BarScreenItem
+import cd.wayupdotdev.uza.ui.screen.home.component.ChipTab
 import cd.wayupdotdev.uza.ui.screen.home.component.SearchBar
-import cd.wayupdotdev.uza.ui.screen.home.component.TabRaw
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -41,8 +41,8 @@ fun HomeScreen(navigator: DestinationsNavigator){
         (context as? Activity)?.finish()
     }
 
-    var selectedTabIndex by remember { mutableIntStateOf(0) }
     val tabs = listOf("Tous", "vetements", "Montre", "Ordi", "Telephone")
+    var selectedTabIndex by remember { mutableStateOf(tabs[0]) }
 
     LazyColumn(content = {
         item {
@@ -54,16 +54,16 @@ fun HomeScreen(navigator: DestinationsNavigator){
         }
 
         item {
-            TabRaw(
-                tabs = tabs,
-                selectedTabIndex = selectedTabIndex,
-            ) { tabIndex ->
-                selectedTabIndex = tabIndex
-            }
+            SearchBar(onSearch = {})
         }
 
         item {
-            SearchBar(onSearch = {})
+            ChipTab(
+                itemsList = tabs,
+                selectedItem = selectedTabIndex,
+            ) { tabIndex ->
+                selectedTabIndex = tabIndex
+            }
         }
     })
 }

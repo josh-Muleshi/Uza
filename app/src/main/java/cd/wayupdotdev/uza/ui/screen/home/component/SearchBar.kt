@@ -25,7 +25,6 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
-import cd.wayupdotdev.uza.ui.theme.ItemGray
 import cd.wayupdotdev.uza.ui.theme.searchCardBack
 
 
@@ -47,22 +46,22 @@ fun SearchBar(onSearch: (String) -> Unit){
             IconButton(
                 onClick = {}
             ) {
-                Icon(Icons.Rounded.Search, contentDescription = "Rechercher...", tint = ItemGray)
+                Icon(Icons.Rounded.Search, contentDescription = "Rechercher...", tint = Color.Gray)
             }
         },
         colors = TextFieldDefaults.textFieldColors(
             backgroundColor =  searchCardBack,
-            cursorColor = ItemGray,
+            cursorColor = Color.Gray,
             disabledLabelColor = Color.LightGray,
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            placeholderColor = ItemGray,
+            placeholderColor = Color.Gray,
         ),
         singleLine = true,
         shape = MaterialTheme.shapes.extraLarge,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 20.dp, vertical = 20.dp),
+            .padding(horizontal = 20.dp),
         keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
         keyboardActions = KeyboardActions(onSearch = {
             onSearch(text)

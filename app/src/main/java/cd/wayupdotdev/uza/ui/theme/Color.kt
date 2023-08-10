@@ -12,3 +12,4 @@ val Pink40 = Color(0xFF7D5260)
 
 val ItemGray = Color(0xFFC7C3C3)
 val searchCardBack = Color(0xFFF0EFEF)
+val BlackGray = Color(0xFF5F5F5F)

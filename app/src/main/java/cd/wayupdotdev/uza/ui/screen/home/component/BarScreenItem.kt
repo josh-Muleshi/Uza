@@ -18,11 +18,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import cd.wayupdotdev.uza.R
-import cd.wayupdotdev.uza.ui.theme.ItemGray
+import cd.wayupdotdev.uza.ui.theme.BlackGray
 
 @Composable
 fun BarScreenItem (onProfileBtnClicked: () -> Unit, onNotificationBtnClicked: () -> Unit, onSettingsBtnClicked: () -> Unit) {
@@ -40,7 +39,7 @@ fun BarScreenItem (onProfileBtnClicked: () -> Unit, onNotificationBtnClicked: ()
             modifier = Modifier
                 .size(45.dp)
                 .clip(shape = CircleShape)
-                .border(2.dp, color = ItemGray,shape = CircleShape)
+                .border(2.dp, color = BlackGray,shape = CircleShape)
                 .clickable {
                     onProfileBtnClicked()
                 }
@@ -50,7 +49,7 @@ fun BarScreenItem (onProfileBtnClicked: () -> Unit, onNotificationBtnClicked: ()
             IconButton(onClick = onNotificationBtnClicked) {
                 Icon(
                     imageVector = Icons.Outlined.Notifications,
-                    tint = Color.Gray,
+                    tint = BlackGray,
                     contentDescription = "notification",
                     modifier = Modifier
                         .size(25.dp)
@@ -60,7 +59,7 @@ fun BarScreenItem (onProfileBtnClicked: () -> Unit, onNotificationBtnClicked: ()
             IconButton(onClick = onSettingsBtnClicked) {
                 Icon(
                     imageVector = Icons.Outlined.Settings,
-                    tint = Color.Gray,
+                    tint = BlackGray,
                     contentDescription = "settings",
                     modifier = Modifier
                         .size(30.dp)
