@@ -8,7 +8,7 @@ package cd.wayupdotdev.uza.navigation
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
-import cd.wayupdotdev.uza.destinations.MainScreenDestination
+import cd.wayupdotdev.uza.destinations.OnBoardingScreenDestination
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
@@ -23,7 +23,7 @@ fun SetupNavGraph() {
     val engine = rememberAnimatedNavHostEngine()
     val navController = rememberNavController()
 
-    val startRoute = MainScreenDestination
+    val startRoute = OnBoardingScreenDestination
     DestinationsNavHost(
         navGraph = StartNavGraph,
         startRoute = startRoute,

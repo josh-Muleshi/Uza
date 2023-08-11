@@ -9,7 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import cd.wayupdotdev.uza.navigation.MainScreen
+import cd.wayupdotdev.uza.navigation.SetupNavGraph
 import cd.wayupdotdev.uza.ui.theme.UzaTheme
 import cd.wayupdotdev.uza.ui.viewModel.SplashViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
             UzaTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    MainScreen()
+                    SetupNavGraph()
                 }
             }
         }

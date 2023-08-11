@@ -14,8 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -29,6 +29,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cd.wayupdotdev.uza.R
+import cd.wayupdotdev.uza.ui.theme.BlackGray
+import cd.wayupdotdev.uza.ui.theme.Purple80
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
@@ -47,23 +49,23 @@ fun OnBoardingScreen() {
 
     items.add(
         OnBoardingData(
-            R.raw.animation_lkxsd833,
-            "Shop Awesome Products",
-            "We have products in different categories including Apparels, Electronics, Accessories, Footwear etc."
+            R.raw.animation_lkxsrlrl,
+            "Amazing Customer Support",
+            "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface."
         )
     )
 
     items.add(
         OnBoardingData(
-            R.raw.animation_lkxsfgrv,
-            "One Day Delivery",
-            "Our delivery team around the clock to provide you the products fast and securely."
+            R.raw.animation_lkxsi8ju,
+            "Amazing Customer Support",
+            "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface."
         )
     )
 
     items.add(
         OnBoardingData(
-            R.raw.animation_lkxsh3xv,
+            R.raw.animation_lkxsnh3w,
             "Amazing Customer Support",
             "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface."
         )
@@ -112,23 +114,26 @@ fun OnBoardingPager(
     ) {
 
         LottieAnimation(
-            modifier = Modifier.height(250.dp)
-                .fillMaxWidth().padding(16.dp),
+            modifier = Modifier
+                .height(250.dp)
+                .fillMaxWidth()
+                .padding(16.dp),
             composition = composistion.value,
             progress = { progress }
         )
 
-
         Text(
             text = item.title,
-            modifier = Modifier.padding(top = 50.dp), color = Color.White,
-            fontWeight = FontWeight.Medium
+            modifier = Modifier.padding(top = 50.dp),
+            color = BlackGray,
+            fontWeight = FontWeight.Medium,
+            fontSize = 20.sp
         )
 
         Text(
             text = item.desc,
             modifier = Modifier.padding(top = 30.dp, start = 20.dp, end = 20.dp),
-            color = Color.White,
+            color = Color.Gray,
             fontWeight = FontWeight.Normal,
             fontSize = 18.sp,
             textAlign = TextAlign.Center
@@ -178,7 +183,7 @@ fun Indicator(isSelected: Boolean) {
             .width(width.value)
             .clip(CircleShape)
             .background(
-                if (isSelected) MaterialTheme.colorScheme.primary else Color.DarkGray.copy(alpha = 0.5f)
+                if (isSelected) Purple80 else Color.DarkGray.copy(alpha = 0.5f)
             )
     )
 }
@@ -195,12 +200,17 @@ fun BottomSection(currentPager: Int) {
         if (currentPager == 2) {
             OutlinedButton(
                 onClick = { },
+                colors = ButtonDefaults.outlinedButtonColors(
+                    backgroundColor = Color.Black,
+                    contentColor = Purple80
+                ),
                 shape = RoundedCornerShape(50), // = 40% percent
             ) {
                 Text(
                     text = "Get Started",
                     modifier = Modifier.padding(vertical = 8.dp, horizontal = 40.dp),
-                    color = Color.DarkGray
+                    color = Purple80,
+                    fontWeight = FontWeight.Medium
                 )
             }
         } else {
@@ -210,6 +220,8 @@ fun BottomSection(currentPager: Int) {
 
     }
 }
+
+
 
 @Composable
 fun SkipNextButton(text: String, modifier: Modifier) {
