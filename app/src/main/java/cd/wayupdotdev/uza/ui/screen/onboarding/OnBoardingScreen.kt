@@ -28,8 +28,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import cd.wayupdotdev.uza.R
 import cd.wayupdotdev.uza.destinations.MainScreenDestination
+import cd.wayupdotdev.uza.ui.screen.onboarding.business.OnBoardingviewModel
 import cd.wayupdotdev.uza.ui.theme.BlackGray
 import cd.wayupdotdev.uza.ui.theme.Purple80
 import com.airbnb.lottie.compose.LottieAnimation
@@ -46,7 +48,8 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @OptIn(ExperimentalPagerApi::class)
 @Destination
 @Composable
-fun OnBoardingScreen(navigator: DestinationsNavigator) {
+fun OnBoardingScreen(navigator: DestinationsNavigator, viewModel: OnBoardingviewModel = hiltViewModel()) {
+
     val items = ArrayList<OnBoardingData>()
 
     items.add(
@@ -96,6 +99,7 @@ fun OnBoardingScreen(navigator: DestinationsNavigator) {
         Box(modifier = Modifier.align(Alignment.BottomCenter)) {
             BottomSection(pagerState.currentPage){
                 navigator.navigate(MainScreenDestination)
+                viewModel.isOnboardingShow(true)
             }
         }
     }
