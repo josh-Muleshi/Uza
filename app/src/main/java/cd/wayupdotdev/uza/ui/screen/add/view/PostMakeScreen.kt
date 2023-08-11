@@ -14,7 +14,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -33,17 +35,22 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import cd.wayupdotdev.uza.AuthActivity
 import cd.wayupdotdev.uza.destinations.MainScreenDestination
 import cd.wayupdotdev.uza.ui.screen.add.business.AddViewModel
+import cd.wayupdotdev.uza.ui.theme.ItemGray
+import cd.wayupdotdev.uza.ui.theme.Purple80
 import cd.wayupdotdev.uza.ui.viewModel.business.AuthRouteState
+import com.chargemap.compose.numberpicker.ListItemPicker
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.skydoves.landscapist.glide.GlideImage
@@ -52,13 +59,23 @@ import com.skydoves.landscapist.glide.GlideImage
 @Composable
 fun PostMakeScreen(navigator: DestinationsNavigator, uri: Uri, viewModel: AddViewModel = hiltViewModel()) {
 
-    var comment by remember { mutableStateOf("") }
+    val isAuth by viewModel.isAuth.collectAsState()
+    val context = LocalContext.current
+
     val configuration = LocalConfiguration.current
     val screenWidth = configuration.screenWidthDp.dp
     val screeHeight = configuration.screenHeightDp.dp
 
-    val isAuth by viewModel.isAuth.collectAsState()
-    val context = LocalContext.current
+    var title by remember { mutableStateOf("") }
+    var destination by remember { mutableStateOf("") }
+    var price by remember { mutableStateOf("") }
+    var quantity by remember { mutableStateOf("") }
+
+    val possibleValues = listOf("$", "Fc")
+    var devise by remember { mutableStateOf(possibleValues[0]) }
+
+    val isNotEmptyField = title.isNotEmpty() and price.isNotEmpty() and quantity.isNotEmpty()
+
 
     LazyColumn {
 
@@ -83,18 +100,27 @@ fun PostMakeScreen(navigator: DestinationsNavigator, uri: Uri, viewModel: AddVie
                         )
                     }
                     Button(
-                        enabled = comment.isNotEmpty(),
+                        enabled = isNotEmptyField,
                         modifier = Modifier.padding(
                             horizontal = 16.dp,
                             vertical = 8.dp
                         ),
+                        colors = if (isNotEmptyField) {
+                            ButtonDefaults.outlinedButtonColors(
+                                backgroundColor = Color.Black
+                            )
+                        } else {
+                            ButtonDefaults.outlinedButtonColors(
+                                backgroundColor = ItemGray
+                            )
+                        },
                         shape = RoundedCornerShape(corner = CornerSize(12.dp)),
                         onClick = {
                             when(isAuth){
                                 is AuthRouteState.Success -> {
                                     if ((isAuth as AuthRouteState.Success).isAuth) {
                                         viewModel.addPost(
-                                            comment,
+                                            title,
                                             uri
                                         )
                                         navigator.navigate(MainScreenDestination)
@@ -108,7 +134,7 @@ fun PostMakeScreen(navigator: DestinationsNavigator, uri: Uri, viewModel: AddVie
 
                         }
                     ) {
-                        Text(text = "Enregistrer")
+                        Text(text = "Enregistrer", color = if(isNotEmptyField) Purple80 else Color.Gray)
                     }
                 }
             }
@@ -117,17 +143,86 @@ fun PostMakeScreen(navigator: DestinationsNavigator, uri: Uri, viewModel: AddVie
         item {
             Column(modifier = Modifier.fillMaxSize()) {
                 TextField(
-                    value = comment,
-                    onValueChange = { comment = it },
-                    placeholder = { Text("Ajoutez un commentaire...") },
+                    value = title,
+                    onValueChange = { title = it },
+                    placeholder = { Text("Tapez le nom du produit") },
                     textStyle = TextStyle(
                         fontSize = MaterialTheme.typography.subtitle1.fontSize,
-                        fontWeight = FontWeight.Medium
+                        fontWeight = FontWeight.Bold
                     ),
                     singleLine = true,
                     modifier = Modifier
                         .padding(horizontal = 16.dp, vertical = 0.dp)
                         .fillMaxWidth(),
+                    colors = TextFieldDefaults.textFieldColors(
+                        backgroundColor = MaterialTheme.colors.background,
+                        focusedIndicatorColor = MaterialTheme.colors.background,
+                        unfocusedIndicatorColor = MaterialTheme.colors.background
+                    )
+                )
+
+                TextField(
+                    value = destination,
+                    onValueChange = { destination = it },
+                    placeholder = { Text("Ajoutez une description...") },
+                    textStyle = TextStyle(
+                        fontSize = MaterialTheme.typography.subtitle1.fontSize,
+                        fontWeight = FontWeight.Normal
+                    ),
+                    singleLine = true,
+                    modifier = Modifier
+                        .padding(horizontal = 16.dp, vertical = 0.dp)
+                        .fillMaxWidth(),
+                    colors = TextFieldDefaults.textFieldColors(
+                        backgroundColor = MaterialTheme.colors.background,
+                        focusedIndicatorColor = MaterialTheme.colors.background,
+                        unfocusedIndicatorColor = MaterialTheme.colors.background
+                    )
+                )
+
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    TextField(
+                        value = price,
+                        onValueChange = { price = it },
+                        placeholder = { Text("Le prix") },
+                        textStyle = TextStyle(
+                            fontSize = MaterialTheme.typography.subtitle1.fontSize,
+                            fontWeight = FontWeight.Normal
+                        ),
+                        singleLine = true,
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp, vertical = 0.dp)
+                            .width(100.dp),
+                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                        colors = TextFieldDefaults.textFieldColors(
+                            backgroundColor = MaterialTheme.colors.background,
+                            focusedIndicatorColor = MaterialTheme.colors.background,
+                            unfocusedIndicatorColor = MaterialTheme.colors.background
+                        )
+                    )
+
+                    ListItemPicker(
+                        label = { it },
+                        value = devise,
+                        onValueChange = { devise = it },
+                        list = possibleValues,
+                        dividersColor = Purple80
+                    )
+                }
+
+                TextField(
+                    value = quantity,
+                    onValueChange = { quantity = it },
+                    placeholder = { Text("La quantité") },
+                    textStyle = TextStyle(
+                        fontSize = MaterialTheme.typography.subtitle1.fontSize,
+                        fontWeight = FontWeight.Normal
+                    ),
+                    singleLine = true,
+                    modifier = Modifier
+                        .padding(horizontal = 16.dp, vertical = 0.dp)
+                        .width(150.dp),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     colors = TextFieldDefaults.textFieldColors(
                         backgroundColor = MaterialTheme.colors.background,
                         focusedIndicatorColor = MaterialTheme.colors.background,
