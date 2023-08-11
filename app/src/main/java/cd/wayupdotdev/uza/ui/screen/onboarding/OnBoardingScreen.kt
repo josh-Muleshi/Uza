@@ -29,6 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cd.wayupdotdev.uza.R
+import cd.wayupdotdev.uza.destinations.MainScreenDestination
 import cd.wayupdotdev.uza.ui.theme.BlackGray
 import cd.wayupdotdev.uza.ui.theme.Purple80
 import com.airbnb.lottie.compose.LottieAnimation
@@ -40,11 +41,12 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @OptIn(ExperimentalPagerApi::class)
 @Destination
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(navigator: DestinationsNavigator) {
     val items = ArrayList<OnBoardingData>()
 
     items.add(
@@ -92,7 +94,9 @@ fun OnBoardingScreen() {
             PagerIndicator(items.size, pagerState.currentPage)
         }
         Box(modifier = Modifier.align(Alignment.BottomCenter)) {
-            BottomSection(pagerState.currentPage)
+            BottomSection(pagerState.currentPage){
+                navigator.navigate(MainScreenDestination)
+            }
         }
     }
 }
@@ -189,7 +193,7 @@ fun Indicator(isSelected: Boolean) {
 }
 
 @Composable
-fun BottomSection(currentPager: Int) {
+fun BottomSection(currentPager: Int, onStartBtnClicked: () -> Unit) {
     Row(
         modifier = Modifier
             .padding(bottom = 20.dp)
@@ -199,7 +203,7 @@ fun BottomSection(currentPager: Int) {
 
         if (currentPager == 2) {
             OutlinedButton(
-                onClick = { },
+                onClick = { onStartBtnClicked() },
                 colors = ButtonDefaults.outlinedButtonColors(
                     backgroundColor = Color.Black,
                     contentColor = Purple80
