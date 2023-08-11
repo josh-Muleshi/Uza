@@ -28,10 +28,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import cd.wayupdotdev.uza.AuthActivity
 import cd.wayupdotdev.uza.destinations.SettingScreenDestination
@@ -57,14 +55,14 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
 
     var selectedTabIndex by remember { mutableStateOf(tabs[0]) }
 
-    val gridItemsr = listOf("Grid 1", "Grid 2", "Grid 3", "Grid 4", "")
+    val gridItemsr = listOf("Grid 1", "Grid 2", "Grid 3", "Grid 4", "Grid 5", "Grid 5", "Grid 5", "Grid 5", "Grid 5")
     val cols = 2
 
     LazyColumn(
-        contentPadding = PaddingValues(8.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(12.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
         modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.Start,
     ) {
         item {
             BarScreenItem(
@@ -94,7 +92,7 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
             Row {
                 for ((index, item) in items.withIndex()) {
 
-                    Column(modifier = Modifier.fillMaxWidth(1f / (cols - index)).padding(12.dp)) {
+                    Column(modifier = Modifier.fillMaxWidth(1f / (cols - index)).padding(4.dp)) {
                         Item(index = index)
                         Text(
                             text = item,
@@ -105,13 +103,6 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
         }
 
         item {
-            Text(
-                text = "<--   post end   -->",
-                fontSize = 10.sp,
-                fontWeight = FontWeight.Medium,
-                color = Color.LightGray,
-                fontStyle = FontStyle.Italic
-            )
             Spacer(modifier = Modifier.padding(22.dp))
         }
 
@@ -124,14 +115,15 @@ fun Item(index : Int) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(height = 200.dp)
-            .background(color = Color.Magenta, shape = RoundedCornerShape(size = 4.dp)),
+            .height(height = 190.dp)
+            .background(color = Color.Magenta, shape = RoundedCornerShape(size = 16.dp)),
         contentAlignment = Alignment.Center
     ) {
         Text(
             text = "$index",
             color = Color.White,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+
         )
     }
 }
