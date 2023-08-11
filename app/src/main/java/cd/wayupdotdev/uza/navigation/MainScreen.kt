@@ -49,6 +49,9 @@ fun MainScreen() {
     val scaffoldState = rememberScaffoldState()
     val startRoute = HomeScreenDestination
 
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
+
     Scaffold(
         scaffoldState = scaffoldState,
         floatingActionButton = {
@@ -70,14 +73,12 @@ fun MainScreen() {
         floatingActionButtonPosition = FabPosition.Center,
         isFloatingActionButtonDocked = true,
         drawerElevation = 0.dp,
-        bottomBar = {
+        bottomBar =  {
             BottomAppBar(backgroundColor = Color.Black, elevation = 0.dp) {
                 BottomNavigation(backgroundColor = Color.Black, elevation = 0.dp) {
-                    val navBackStackEntry by navController.currentBackStackEntryAsState()
-                    val currentDestination = navBackStackEntry?.destination
-
                     getBottomNavItems().forEach { screen ->
-                        val isSelected = currentDestination?.hierarchy?.any { it.route == screen.route } == true
+                        val isSelected =
+                            currentDestination?.hierarchy?.any { it.route == screen.route } == true
                         BottomNavigationItem(
                             selected = isSelected,
                             onClick = { navController.navigate(screen.destination) },
@@ -87,7 +88,7 @@ fun MainScreen() {
                                 Text(text = screen.label, fontSize = 10.sp)
                             },
                             icon = {
-                                if (screen.label != "Ajouter"){
+                                if (screen.label != "Ajouter") {
                                     Column(verticalArrangement = Arrangement.Top) {
                                         if (isSelected) {
                                             Icon(

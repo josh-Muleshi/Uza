@@ -24,8 +24,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import cd.wayupdotdev.uza.destinations.AuthScreenDestination
 import cd.wayupdotdev.uza.destinations.DetailScreenDestination
-import cd.wayupdotdev.uza.destinations.ProfileScreenDestination
 import cd.wayupdotdev.uza.destinations.SettingScreenDestination
 import cd.wayupdotdev.uza.ui.screen.home.business.HomeState
 import cd.wayupdotdev.uza.ui.screen.home.business.HomeViewModel
@@ -59,7 +59,7 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
         content = {
         item {
             BarScreenItem(
-                onProfileBtnClicked = { navigator.navigate(ProfileScreenDestination) },
+                onProfileBtnClicked = { navigator.navigate(AuthScreenDestination) },
                 onNotificationBtnClicked = {},
                 onSettingsBtnClicked = { navigator.navigate(SettingScreenDestination) }
             )
