@@ -52,7 +52,7 @@ fun OnBoardingScreen(navigator: DestinationsNavigator) {
     items.add(
         OnBoardingData(
             R.raw.animation_lkxsrlrl,
-            "Amazing Customer Support",
+            "Acheter des produits géniaux",
             "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface."
         )
     )
@@ -60,7 +60,7 @@ fun OnBoardingScreen(navigator: DestinationsNavigator) {
     items.add(
         OnBoardingData(
             R.raw.animation_lkxsi8ju,
-            "Amazing Customer Support",
+            "Livraison en un jour",
             "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface."
         )
     )
@@ -68,7 +68,7 @@ fun OnBoardingScreen(navigator: DestinationsNavigator) {
     items.add(
         OnBoardingData(
             R.raw.animation_lkxsnh3w,
-            "Amazing Customer Support",
+            "Un support client exceptionnel",
             "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface."
         )
     )
@@ -211,15 +211,15 @@ fun BottomSection(currentPager: Int, onStartBtnClicked: () -> Unit) {
                 shape = RoundedCornerShape(50), // = 40% percent
             ) {
                 Text(
-                    text = "Get Started",
+                    text = "Commencer",
                     modifier = Modifier.padding(vertical = 8.dp, horizontal = 40.dp),
                     color = Purple80,
                     fontWeight = FontWeight.Medium
                 )
             }
         } else {
-            SkipNextButton("Skip", Modifier.padding(start = 20.dp))
-            SkipNextButton("Next", Modifier.padding(end = 20.dp))
+            SkipNextButton("Précédent", Modifier.padding(start = 20.dp))
+            SkipNextButton("Suivant", Modifier.padding(end = 20.dp))
         }
 
     }
