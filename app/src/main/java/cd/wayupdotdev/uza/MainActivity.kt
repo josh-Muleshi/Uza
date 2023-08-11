@@ -7,10 +7,14 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import cd.wayupdotdev.uza.navigation.MainScreen
 import cd.wayupdotdev.uza.navigation.SetupNavGraph
 import cd.wayupdotdev.uza.ui.theme.UzaTheme
+import cd.wayupdotdev.uza.ui.viewModel.MainState
 import cd.wayupdotdev.uza.ui.viewModel.SplashViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +33,19 @@ class MainActivity : ComponentActivity() {
             UzaTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    SetupNavGraph()
+
+                    val isShow by viewModel.isShow.collectAsState()
+
+                    when(isShow){
+                        is MainState.Success -> {
+                            if ((isShow as MainState.Success).isShow) {
+                                MainScreen()
+                            } else {
+                                SetupNavGraph()
+                            }
+                        }
+                        else -> {}
+                    }
                 }
             }
         }
