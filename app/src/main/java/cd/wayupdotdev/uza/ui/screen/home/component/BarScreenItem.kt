@@ -27,7 +27,7 @@ import cd.wayupdotdev.uza.ui.theme.BlackGray
 fun BarScreenItem (onProfileBtnClicked: () -> Unit, onNotificationBtnClicked: () -> Unit, onSettingsBtnClicked: () -> Unit) {
     Row(
         modifier = Modifier
-            .padding(start = 16.dp, end = 5.dp)
+            .padding(start = 10.dp)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween

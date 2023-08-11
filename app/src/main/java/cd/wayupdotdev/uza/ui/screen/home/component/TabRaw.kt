@@ -18,7 +18,7 @@ fun ChipTab(
     selectedItem: String,
     onTabClick: (String) -> Unit
 ) {
-    LazyRow(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 16.dp)){
+    LazyRow(modifier = Modifier.fillMaxWidth().padding(horizontal = 8.dp, vertical = 16.dp)){
         items(itemsList) {item ->
             FilterChip(
                 modifier = Modifier.padding(horizontal = 6.dp),
