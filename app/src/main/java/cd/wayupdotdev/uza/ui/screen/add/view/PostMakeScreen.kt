@@ -1,5 +1,6 @@
 package cd.wayupdotdev.uza.ui.screen.add.view
 
+import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,6 +25,7 @@ import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -33,12 +35,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import cd.wayupdotdev.mytown.presentation.screen.post.business.AddViewModel
+import cd.wayupdotdev.uza.AuthActivity
 import cd.wayupdotdev.uza.destinations.MainScreenDestination
+import cd.wayupdotdev.uza.ui.screen.add.business.AddViewModel
+import cd.wayupdotdev.uza.ui.viewModel.business.AuthRouteState
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.skydoves.landscapist.glide.GlideImage
@@ -51,6 +56,9 @@ fun PostMakeScreen(navigator: DestinationsNavigator, uri: Uri, viewModel: AddVie
     val configuration = LocalConfiguration.current
     val screenWidth = configuration.screenWidthDp.dp
     val screeHeight = configuration.screenHeightDp.dp
+
+    val isAuth by viewModel.isAuth.collectAsState()
+    val context = LocalContext.current
 
     LazyColumn {
 
@@ -82,11 +90,22 @@ fun PostMakeScreen(navigator: DestinationsNavigator, uri: Uri, viewModel: AddVie
                         ),
                         shape = RoundedCornerShape(corner = CornerSize(12.dp)),
                         onClick = {
-                            viewModel.addPost(
-                                comment,
-                                uri
-                            )
-                            navigator.navigate(MainScreenDestination)
+                            when(isAuth){
+                                is AuthRouteState.Success -> {
+                                    if ((isAuth as AuthRouteState.Success).isAuth) {
+                                        viewModel.addPost(
+                                            comment,
+                                            uri
+                                        )
+                                        navigator.navigate(MainScreenDestination)
+                                    } else {
+                                        val intent = Intent(context, AuthActivity::class.java)
+                                        context.startActivity(intent)
+                                    }
+                                }
+                                else -> {}
+                            }
+
                         }
                     ) {
                         Text(text = "Enregistrer")

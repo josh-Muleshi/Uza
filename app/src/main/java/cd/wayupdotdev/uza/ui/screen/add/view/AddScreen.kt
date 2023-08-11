@@ -26,11 +26,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
-import cd.wayupdotdev.mytown.presentation.screen.post.business.AddViewModel
 import cd.wayupdotdev.uza.R
 import cd.wayupdotdev.uza.destinations.MainScreenDestination
 import cd.wayupdotdev.uza.destinations.PostMakeScreenDestination
 import cd.wayupdotdev.uza.ui.screen.add.business.AddState
+import cd.wayupdotdev.uza.ui.screen.add.business.AddViewModel
 import cd.wayupdotdev.uza.ui.theme.Purple80
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
