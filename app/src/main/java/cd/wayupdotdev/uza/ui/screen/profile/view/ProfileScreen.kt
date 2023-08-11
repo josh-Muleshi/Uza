@@ -1,12 +1,34 @@
 package cd.wayupdotdev.uza.ui.screen.profile.view
 
-import androidx.compose.foundation.*
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedButton
+import androidx.compose.material.Scaffold
+import androidx.compose.material.SnackbarHostState
+import androidx.compose.material.Text
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -18,12 +40,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import cd.wayupdotdev.uza.ui.screen.profile.business.ProfileState
-import cd.wayupdotdev.uza.ui.screen.profile.business.ProfileViewModel
-import cd.wayupdotdev.uza.ui.screen.profile.component.ProfileAppBar
 import cd.wayupdotdev.uza.R
 import cd.wayupdotdev.uza.app.App
 import cd.wayupdotdev.uza.destinations.SettingScreenDestination
+import cd.wayupdotdev.uza.ui.screen.profile.business.ProfileState
+import cd.wayupdotdev.uza.ui.screen.profile.business.ProfileViewModel
+import cd.wayupdotdev.uza.ui.screen.profile.component.ProfileAppBar
 import cd.wayupdotdev.uza.ui.theme.Purple80
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -106,8 +128,6 @@ fun ProfileScreen(navigator : DestinationsNavigator, viewModel: ProfileViewModel
                                 viewModel.logout()
                                 App.restart(context)
                             }
-
-                            //logout = true
                         },
                         modifier = Modifier
                             .fillMaxWidth()
@@ -131,7 +151,7 @@ fun ProfileScreen(navigator : DestinationsNavigator, viewModel: ProfileViewModel
                                 )
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
-                                    text = "Se connecter avec Google",
+                                    text = "Se deconnecter",
                                     style = MaterialTheme.typography.button.copy(color = Purple80)
                                 )
                             }

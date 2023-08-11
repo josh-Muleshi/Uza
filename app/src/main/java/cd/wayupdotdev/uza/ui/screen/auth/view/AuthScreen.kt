@@ -128,7 +128,7 @@ fun AuthScreen(navigator: DestinationsNavigator, viewModel: AuthViewModel = hilt
                     .padding(start = 14.dp)
             )
             Text(
-                text = "Gardons notre environement propre",
+                text = "Acheter des produits géniaux",
                 style = MaterialTheme.typography.body2.copy(
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Light,

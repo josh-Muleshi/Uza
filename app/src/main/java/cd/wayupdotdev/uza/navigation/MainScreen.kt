@@ -15,7 +15,6 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Minimize
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -92,16 +91,17 @@ fun MainScreen() {
                                     Column(verticalArrangement = Arrangement.Top) {
                                         if (isSelected) {
                                             Icon(
-                                                imageVector = Icons.Default.Minimize,
-                                                tint = Purple80,
+                                                imageVector = screen.iconSelected as ImageVector,
+                                                tint = Color.White,
+                                                contentDescription = null
+                                            )
+                                        }else {
+                                            Icon(
+                                                imageVector = screen.icon as ImageVector,
+                                                tint = ItemGray,
                                                 contentDescription = null
                                             )
                                         }
-                                        Icon(
-                                            imageVector = screen.icon as ImageVector,
-                                            tint = if (isSelected) Color.White else ItemGray,
-                                            contentDescription = null
-                                        )
                                     }
                                 }
                             }
