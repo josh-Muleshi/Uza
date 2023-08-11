@@ -8,7 +8,6 @@ import com.ramcosta.composedestinations.spec.DestinationSpec
 import com.ramcosta.composedestinations.spec.NavGraphSpec
 import com.ramcosta.composedestinations.spec.Route
 
-
 private val destinationsList = listOf(
     ProfileScreenDestination,
     AuthScreenDestination,

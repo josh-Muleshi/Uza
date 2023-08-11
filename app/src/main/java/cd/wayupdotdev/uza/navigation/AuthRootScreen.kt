@@ -20,7 +20,6 @@ fun AuthRootScreen(viewModel : AuthRouteViewModel = hiltViewModel()) {
     val isAuth by viewModel.isAuth.collectAsState()
 
     val navController = rememberNavController()
-
     var startRoute: Route = AuthScreenDestination
 
     when(isAuth){
