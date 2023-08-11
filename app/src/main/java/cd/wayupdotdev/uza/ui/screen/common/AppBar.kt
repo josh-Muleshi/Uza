@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cd.wayupdotdev.uza.R
 import cd.wayupdotdev.uza.destinations.HomeScreenDestination
+import cd.wayupdotdev.uza.ui.theme.BlackGray
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Composable
@@ -34,6 +35,7 @@ fun AppBarScreen(navigator: DestinationsNavigator, ScreenName: String) {
             IconButton(onClick = { navigator.navigate(HomeScreenDestination) }) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_arrow_back),
+                    tint = BlackGray,
                     contentDescription = ""
                 )
             }

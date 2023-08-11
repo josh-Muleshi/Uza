@@ -4,17 +4,19 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import cd.wayupdotdev.uza.R
+import cd.wayupdotdev.uza.ui.theme.BlackGray
 
 @Composable
 fun ProfileAppBar(
@@ -33,17 +35,19 @@ fun ProfileAppBar(
         ) {
             IconButton(onClick = backButton ) {
                 Icon(
-                    imageVector = Icons.Default.ArrowBack,
-                    contentDescription = "back",
-                    tint = Color.Black
+                    painter = painterResource(id = R.drawable.ic_arrow_back),
+                    tint = BlackGray,
+                    contentDescription = "back"
                 )
             }
 
             IconButton(onClick = settingScreen ) {
                 Icon(
-                    imageVector = Icons.Default.Settings,
-                    contentDescription = "back",
-                    tint = Color.Black
+                    imageVector = Icons.Outlined.Settings,
+                    tint = BlackGray,
+                    contentDescription = "settings",
+                    modifier = Modifier
+                        .size(30.dp)
                 )
             }
         }
