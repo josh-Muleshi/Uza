@@ -14,8 +14,8 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import cd.wayupdotdev.uza.navigation.MainScreen
 import cd.wayupdotdev.uza.navigation.SetupNavGraph
 import cd.wayupdotdev.uza.ui.theme.UzaTheme
-import cd.wayupdotdev.uza.ui.viewModel.MainState
 import cd.wayupdotdev.uza.ui.viewModel.SplashViewModel
+import cd.wayupdotdev.uza.ui.viewModel.business.MainState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

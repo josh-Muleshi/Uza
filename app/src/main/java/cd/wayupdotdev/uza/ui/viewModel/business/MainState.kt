@@ -1,4 +1,4 @@
-package cd.wayupdotdev.uza.ui.viewModel
+package cd.wayupdotdev.uza.ui.viewModel.business
 
 sealed class MainState {
     object Uninitialized : MainState()

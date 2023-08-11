@@ -14,9 +14,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     //private val localPostRepository: LocalPostRepository,
-    private val postRepository: PostRepoImpl
+    private val postRepository: PostRepoImpl,
 ) : ViewModel() {
-
     private val _data = MutableStateFlow<HomeState>(HomeState.Uninitialized)
     val data: StateFlow<HomeState>
         get() = _data

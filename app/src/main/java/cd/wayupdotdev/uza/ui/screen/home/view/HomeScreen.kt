@@ -1,6 +1,7 @@
 package cd.wayupdotdev.uza.ui.screen.home.view
 
 import android.app.Activity
+import android.content.Intent
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -24,7 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import cd.wayupdotdev.uza.destinations.AuthScreenDestination
+import cd.wayupdotdev.uza.AuthActivity
 import cd.wayupdotdev.uza.destinations.DetailScreenDestination
 import cd.wayupdotdev.uza.destinations.SettingScreenDestination
 import cd.wayupdotdev.uza.ui.screen.home.business.HomeState
@@ -59,7 +60,9 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
         content = {
         item {
             BarScreenItem(
-                onProfileBtnClicked = { navigator.navigate(AuthScreenDestination) },
+                onProfileBtnClicked = {
+                    val intent = Intent(context, AuthActivity::class.java)
+                    context.startActivity(intent) },
                 onNotificationBtnClicked = {},
                 onSettingsBtnClicked = { navigator.navigate(SettingScreenDestination) }
             )
