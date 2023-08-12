@@ -14,7 +14,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
+import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -23,6 +25,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -42,7 +47,9 @@ import cd.wayupdotdev.uza.data.model.Post
 import cd.wayupdotdev.uza.ui.screen.detail.business.DetailState
 import cd.wayupdotdev.uza.ui.screen.detail.business.DetailViewModel
 import cd.wayupdotdev.uza.ui.theme.Black_ic
+import cd.wayupdotdev.uza.ui.theme.Purple80
 import cd.wayupdotdev.uza.ui.theme.WhiteTrans
+import com.chargemap.compose.numberpicker.NumberPicker
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.skydoves.landscapist.glide.GlideImage
@@ -84,6 +91,9 @@ fun DetailScreen(navigator: DestinationsNavigator, postUid: String, viewModel: D
 
 @Composable
 fun DetailScreenContent(post: Post, onAddToFavorite: (Post) -> Unit, backButton: () -> Unit) {
+
+    var qt by remember { mutableStateOf(0) }
+
     LazyColumn(content = {
         item {
             BannerImageSection(post = post, onAddToFavorite = {onAddToFavorite.invoke(it)}, backButton = backButton)
@@ -94,12 +104,12 @@ fun DetailScreenContent(post: Post, onAddToFavorite: (Post) -> Unit, backButton:
                 Text(
                     text = post.title,
                     fontWeight = FontWeight.ExtraBold,
-                    fontSize = 20.sp,
+                    fontSize = 24.sp,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
 
-                Spacer(modifier = Modifier.padding(2.dp))
+                Spacer(modifier = Modifier.padding(4.dp))
 
                 Text(
                     text = post.description,
@@ -110,11 +120,46 @@ fun DetailScreenContent(post: Post, onAddToFavorite: (Post) -> Unit, backButton:
 
                 Spacer(modifier = Modifier.padding(2.dp))
 
-                Text(
-                    text = post.devise + post.price.toString(),
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 18.sp,
-                    maxLines = 1
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+
+                    Text(
+                        text = post.devise + post.price.toString(),
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 18.sp,
+                        maxLines = 1
+                    )
+
+                    NumberPicker(
+                        value = qt,
+                        range = 0..10,
+                        onValueChange = {
+                            qt = it
+                        },
+                        dividersColor = Purple80
+                    )
+                }
+            }
+        }
+
+        item {
+            OutlinedButton(
+                modifier = Modifier.padding(horizontal = 24.dp).fillMaxWidth(),
+                onClick = {  },
+                colors = ButtonDefaults.outlinedButtonColors(
+                    backgroundColor = Color.Black,
+                    contentColor = Purple80
+                ),
+                shape = RoundedCornerShape(50), // = 40% percent
+            ) {
+                androidx.compose.material3.Text(
+                    text = "Passer la commande",
+                    modifier = Modifier.padding(vertical = 8.dp, horizontal = 40.dp),
+                    color = Purple80,
+                    fontWeight = FontWeight.Medium
                 )
             }
         }
