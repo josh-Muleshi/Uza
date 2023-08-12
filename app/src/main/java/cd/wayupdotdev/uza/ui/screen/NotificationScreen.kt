@@ -1,4 +1,4 @@
-package cd.wayupdotdev.uza.ui.screen.browse.view
+package cd.wayupdotdev.uza.ui.screen
 
 import androidx.compose.runtime.Composable
 import cd.wayupdotdev.uza.ui.screen.common.EmptyScreen
@@ -6,6 +6,6 @@ import com.ramcosta.composedestinations.annotation.Destination
 
 @Destination
 @Composable
-fun BrowseScreen() {
-    EmptyScreen("Parcourir")
+fun NotificationScreen() {
+    EmptyScreen("Notification")
 }

@@ -32,6 +32,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import cd.wayupdotdev.uza.AuthActivity
+import cd.wayupdotdev.uza.destinations.NotificationScreenDestination
 import cd.wayupdotdev.uza.destinations.SettingScreenDestination
 import cd.wayupdotdev.uza.ui.screen.home.business.HomeViewModel
 import cd.wayupdotdev.uza.ui.screen.home.component.BarScreenItem
@@ -70,7 +71,7 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
                     val intent = Intent(context, AuthActivity::class.java)
                     context.startActivity(intent)
                 },
-                onNotificationBtnClicked = {},
+                onNotificationBtnClicked = { navigator.navigate(NotificationScreenDestination) },
                 onSettingsBtnClicked = { navigator.navigate(SettingScreenDestination) }
             )
         }

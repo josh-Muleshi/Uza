@@ -5,12 +5,14 @@ import cd.wayupdotdev.uza.destinations.BrowseScreenDestination
 import cd.wayupdotdev.uza.destinations.DetailScreenDestination
 import cd.wayupdotdev.uza.destinations.HomeScreenDestination
 import cd.wayupdotdev.uza.destinations.MainScreenDestination
+import cd.wayupdotdev.uza.destinations.NotificationScreenDestination
 import cd.wayupdotdev.uza.destinations.SettingScreenDestination
 import com.ramcosta.composedestinations.spec.DestinationSpec
 import com.ramcosta.composedestinations.spec.NavGraphSpec
 import com.ramcosta.composedestinations.spec.Route
 
 private val destinationsList = listOf(
+    NotificationScreenDestination,
     DetailScreenDestination,
     SettingScreenDestination,
     HomeScreenDestination,
