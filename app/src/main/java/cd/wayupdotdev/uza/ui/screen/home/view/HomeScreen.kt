@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,22 +27,29 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import cd.wayupdotdev.uza.AuthActivity
+import cd.wayupdotdev.uza.data.model.Post
 import cd.wayupdotdev.uza.data.model.User
+import cd.wayupdotdev.uza.destinations.DetailScreenDestination
 import cd.wayupdotdev.uza.destinations.NotificationScreenDestination
 import cd.wayupdotdev.uza.destinations.SettingScreenDestination
+import cd.wayupdotdev.uza.ui.screen.home.business.HomeState
 import cd.wayupdotdev.uza.ui.screen.home.business.HomeViewModel
 import cd.wayupdotdev.uza.ui.screen.home.component.BarScreenItem
 import cd.wayupdotdev.uza.ui.screen.home.component.ChipTab
 import cd.wayupdotdev.uza.ui.screen.home.component.SearchBar
 import cd.wayupdotdev.uza.ui.screen.profile.business.ProfileState
+import cd.wayupdotdev.uza.ui.theme.ItemGray
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import com.skydoves.landscapist.glide.GlideImage
 
 @Destination
 @Composable
@@ -59,10 +67,7 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
 
     var selectedTabIndex by remember { mutableStateOf(tabs[0]) }
 
-    val gridItemsr = listOf("Grid 1", "Grid 2", "Grid 3", "Grid 4", "Grid 5", "Grid 5", "Grid 5", "Grid 5", "Grid 5")
     val cols = 2
-
-
 
     LazyColumn(
         contentPadding = PaddingValues(12.dp),
@@ -82,7 +87,7 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
                     onNotificationBtnClicked = { navigator.navigate(NotificationScreenDestination) },
                     onSettingsBtnClicked = { navigator.navigate(SettingScreenDestination) }
                 )
-            }else {
+            } else {
                 BarScreenItem(
                     user = User(),
                     onProfileBtnClicked = {
@@ -108,15 +113,22 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
             }
         }
 
-        items(gridItemsr.chunked(cols)) { items ->
-            Row {
-                for ((index, item) in items.withIndex()) {
-
-                    Column(modifier = Modifier.fillMaxWidth(1f / (cols - index)).padding(4.dp)) {
-                        Item(index = index)
-                        Text(
-                            text = item,
-                        )
+        if (posts is HomeState.Success) {
+            items((posts as HomeState.Success).posts.chunked(cols)) { items ->
+                Row {
+                    for ((index, item) in items.withIndex()) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth(1f / (cols - index))
+                                .padding(4.dp)
+                        ) {
+                            Item(
+                                post = item,
+                                selectedItem = { post ->
+                                    navigator.navigate(DetailScreenDestination(postUid = post.uid))
+                                }
+                            )
+                        }
                     }
                 }
             }
@@ -125,25 +137,65 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
         item {
             Spacer(modifier = Modifier.padding(22.dp))
         }
-
     }
 }
 
 
 @Composable
-fun Item(index : Int) {
-    Box(
+fun Item(
+    post: Post,
+    selectedItem: (Post) -> (Unit)
+) {
+    Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .height(height = 190.dp)
-            .background(color = Color.Magenta, shape = RoundedCornerShape(size = 16.dp)),
-        contentAlignment = Alignment.Center
+        .clickable {
+            selectedItem(post)
+        }
     ) {
-        Text(
-            text = "$index",
-            color = Color.White,
-            fontWeight = FontWeight.Bold,
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(height = 190.dp)
+                .background(
+                    color = ItemGray,
+                    shape = RoundedCornerShape(size = 16.dp)
+                ),
+            contentAlignment = Alignment.Center
+        ) {
+            GlideImage(
+                imageModel = post.imageUrl,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clip(shape = RoundedCornerShape(size = 16.dp))
+            )
+        }
 
-        )
+        Column(modifier = Modifier.padding(8.dp)) {
+            Text(
+                text = post.title,
+                fontWeight = FontWeight.Medium,
+                fontSize = 18.sp,
+                maxLines = 2
+            )
+
+            Spacer(modifier = Modifier.padding(2.dp))
+
+            Text(
+                text = post.description,
+                fontWeight = FontWeight.Normal,
+                fontSize = 16.sp,
+                maxLines = 1
+            )
+
+            Spacer(modifier = Modifier.padding(2.dp))
+
+            Text(
+                text = post.devise + post.price.toString(),
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 18.sp,
+                maxLines = 1
+            )
+        }
     }
 }

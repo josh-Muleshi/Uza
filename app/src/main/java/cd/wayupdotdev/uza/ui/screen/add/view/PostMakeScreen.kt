@@ -71,7 +71,7 @@ fun PostMakeScreen(navigator: DestinationsNavigator, uri: Uri, viewModel: AddVie
     var price by remember { mutableStateOf("") }
     var quantity by remember { mutableStateOf("") }
 
-    val possibleValues = listOf("$", "Fc")
+    val possibleValues = listOf("$", "CDF")
     var devise by remember { mutableStateOf(possibleValues[0]) }
 
     val isNotEmptyField = title.isNotEmpty() and price.isNotEmpty() and quantity.isNotEmpty()
