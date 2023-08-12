@@ -47,10 +47,10 @@ class AddViewModel @Inject constructor(
         }
     }
 
-    fun addPost(description: String, uri: Uri) = viewModelScope.launch {
+    fun addPost(title: String, description: String, price: Double, quantity: Int, devise: String, uri: Uri) = viewModelScope.launch {
         _addPostState.emit(AddState.Loading)
         try {
-            postRepo.add(description, uri)
+            postRepo.add(title, description, price, quantity, devise, uri)
             _addPostState.emit(AddState.Success)
         } catch (t: Throwable) {
             _addPostState.emit(AddState.Error(t.message.toString()))

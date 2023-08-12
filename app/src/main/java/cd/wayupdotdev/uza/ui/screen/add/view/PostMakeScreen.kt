@@ -121,6 +121,10 @@ fun PostMakeScreen(navigator: DestinationsNavigator, uri: Uri, viewModel: AddVie
                                     if ((isAuth as AuthRouteState.Success).isAuth) {
                                         viewModel.addPost(
                                             title,
+                                            destination,
+                                            price.toDouble(),
+                                            quantity.toInt(),
+                                            devise,
                                             uri
                                         )
                                         navigator.navigate(MainScreenDestination)

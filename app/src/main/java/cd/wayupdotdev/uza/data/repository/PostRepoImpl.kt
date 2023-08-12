@@ -1,8 +1,8 @@
 package cd.wayupdotdev.uza.data.repository
 
 import android.net.Uri
-import cd.wayupdotdev.uza.data.utils.FireBaseConstants
 import cd.wayupdotdev.uza.data.model.Post
+import cd.wayupdotdev.uza.data.utils.FireBaseConstants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -64,19 +64,23 @@ class PostRepoImpl @Inject constructor(
         throw it
     }.flowOn(Dispatchers.IO)
 
-    suspend fun add(description: String, uri: Uri) {
+    suspend fun add(title: String, description: String, price: Double, quantity: Int, devise: String, uri: Uri) {
         val fileRef = storage.reference.child("images/${getRandomString(12).lowercase(Locale.ROOT)}")
         fileRef.putFile(uri).await()
         val imageUrl = fileRef.downloadUrl.await().toString()
 
-        addPostStore(description, imageUrl)
+        addPostStore(title, description, price, quantity, devise, imageUrl)
     }
 
-    private suspend fun addPostStore(description: String, imageUrl: String){
+    private suspend fun addPostStore(title: String, description: String, price: Double, quantity: Int, devise: String, imageUrl: String){
         val post = Post(
             uid = getRandomString(12).lowercase(Locale.ROOT),
             userUid = currentUser?.uid.toString(),
+            title = title,
             description = description,
+            price = price,
+            quantity = quantity,
+            devise = devise,
             imageUrl = imageUrl,
             createdAt = Date(System.currentTimeMillis())
         )
