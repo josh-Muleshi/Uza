@@ -7,20 +7,18 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -32,14 +30,19 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import cd.wayupdotdev.uza.R
+import cd.wayupdotdev.uza.data.model.Post
 import cd.wayupdotdev.uza.ui.screen.detail.business.DetailState
 import cd.wayupdotdev.uza.ui.screen.detail.business.DetailViewModel
-import cd.wayupdotdev.uza.data.model.Post
 import cd.wayupdotdev.uza.ui.theme.Black_ic
+import cd.wayupdotdev.uza.ui.theme.WhiteTrans
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.skydoves.landscapist.glide.GlideImage
@@ -89,10 +92,29 @@ fun DetailScreenContent(post: Post, onAddToFavorite: (Post) -> Unit, backButton:
         item {
             Column(modifier = Modifier.padding(16.dp)) {
                 Text(
-                    text = post.description,
-                    style = MaterialTheme.typography.body1,
-                    textAlign = TextAlign.Justify,
+                    text = post.title,
+                    fontWeight = FontWeight.ExtraBold,
+                    fontSize = 20.sp,
+                    maxLines = 2,
                     overflow = TextOverflow.Ellipsis
+                )
+
+                Spacer(modifier = Modifier.padding(2.dp))
+
+                Text(
+                    text = post.description,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 16.sp,
+                    textAlign = TextAlign.Justify,
+                )
+
+                Spacer(modifier = Modifier.padding(2.dp))
+
+                Text(
+                    text = post.devise + post.price.toString(),
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 18.sp,
+                    maxLines = 1
                 )
             }
         }
@@ -103,14 +125,14 @@ fun DetailScreenContent(post: Post, onAddToFavorite: (Post) -> Unit, backButton:
 fun BannerImageSection(modifier: Modifier = Modifier, post: Post, onAddToFavorite: (Post) -> Unit, backButton: () -> Unit) {
     Box(
         modifier = modifier
-            .height(250.dp)
+            .height(400.dp)
             .fillMaxWidth()
     ) {
         GlideImage(
             imageModel = post.imageUrl,
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .height(250.dp)
+                .height(400.dp)
                 .fillMaxWidth()
         )
 
@@ -145,23 +167,32 @@ fun DetailScreenTopSection(
     ) {
         Row(
             modifier = Modifier
-                .padding(start = 4.dp, end = 10.dp)
+                .padding(16.dp)
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            IconButton(onClick = backButton ) {
-                Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "back", tint = Color.White)
+            Box(
+                modifier = Modifier
+                    .clickable { backButton() }
+                    .size(35.dp)
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(color = WhiteTrans)
+                    .padding(start = 8.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(painter = painterResource(id = R.drawable.ic_arrow_back), contentDescription = "back", tint = Color.White)
             }
+
             Box(
                 modifier = Modifier
                     .clickable { onAddToFavorite(post) }
                     .size(35.dp)
-                    .clip(CircleShape)
-                    .background(color = if (post.isFavorite) Color.Red else Color.White)
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(color = if (post.isFavorite) Color.Red else WhiteTrans)
                     .padding(start = 8.dp, end = 8.dp),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(imageVector = Icons.Default.Favorite, contentDescription = "favorite", tint = Color.Black)
+                Icon(imageVector = Icons.Outlined.FavoriteBorder, contentDescription = "favorite", tint = Color.White)
             }
         }
     }

@@ -1,4 +1,4 @@
-package cd.wayupdotdev.uza.ui.screen
+package cd.wayupdotdev.uza.ui.screen.notification
 
 import androidx.compose.runtime.Composable
 import cd.wayupdotdev.uza.ui.screen.common.EmptyScreen

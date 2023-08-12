@@ -31,6 +31,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -176,7 +177,8 @@ fun Item(
                 text = post.title,
                 fontWeight = FontWeight.Medium,
                 fontSize = 18.sp,
-                maxLines = 2
+                maxLines = 2,
+                overflow = TextOverflow.Ellipsis
             )
 
             Spacer(modifier = Modifier.padding(2.dp))
@@ -185,7 +187,8 @@ fun Item(
                 text = post.description,
                 fontWeight = FontWeight.Normal,
                 fontSize = 16.sp,
-                maxLines = 1
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
             )
 
             Spacer(modifier = Modifier.padding(2.dp))
@@ -194,7 +197,8 @@ fun Item(
                 text = post.devise + post.price.toString(),
                 fontWeight = FontWeight.ExtraBold,
                 fontSize = 18.sp,
-                maxLines = 1
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
             )
         }
     }
