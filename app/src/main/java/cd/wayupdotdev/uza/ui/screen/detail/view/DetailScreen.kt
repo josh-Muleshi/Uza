@@ -118,6 +118,15 @@ fun DetailScreenContent(post: Post, onAddToFavorite: (Post) -> Unit, backButton:
                     textAlign = TextAlign.Justify,
                 )
 
+                Spacer(modifier = Modifier.padding(4.dp))
+
+                Text(
+                    text = post.quantity.toString() + " Items en stock",
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 16.sp,
+                    textAlign = TextAlign.Justify,
+                )
+
                 Spacer(modifier = Modifier.padding(2.dp))
 
                 Row(
@@ -170,14 +179,14 @@ fun DetailScreenContent(post: Post, onAddToFavorite: (Post) -> Unit, backButton:
 fun BannerImageSection(modifier: Modifier = Modifier, post: Post, onAddToFavorite: (Post) -> Unit, backButton: () -> Unit) {
     Box(
         modifier = modifier
-            .height(400.dp)
+            .height(350.dp)
             .fillMaxWidth()
     ) {
         GlideImage(
             imageModel = post.imageUrl,
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .height(400.dp)
+                .height(350.dp)
                 .fillMaxWidth()
         )
 
