@@ -1,9 +1,11 @@
 package cd.wayupdotdev.uza.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import cd.wayupdotdev.uza.destinations.AuthScreenDestination
@@ -19,21 +21,20 @@ import com.ramcosta.composedestinations.spec.Route
 fun AuthRootScreen(viewModel : AuthRouteViewModel = hiltViewModel()) {
 
     val isAuth by viewModel.isAuth.collectAsState()
-
     val navController = rememberNavController()
-    var startRoute: Route = AuthScreenDestination
+    var startRoute by remember {
+        mutableStateOf<Route>(AuthScreenDestination)
+    }
 
-    LaunchedEffect(isAuth) {
-        when (isAuth) {
-            is AuthRouteState.Success -> {
-                startRoute = if ((isAuth as AuthRouteState.Success).isAuth) {
-                    ProfileScreenDestination
-                } else {
-                    AuthScreenDestination
-                }
+    when (isAuth) {
+        is AuthRouteState.Success -> {
+            startRoute = if ((isAuth as AuthRouteState.Success).isAuth) {
+                ProfileScreenDestination
+            } else {
+                AuthScreenDestination
             }
-            else -> {}
         }
+        else -> {}
     }
 
     DestinationsNavHost(

@@ -32,12 +32,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import cd.wayupdotdev.uza.AuthActivity
+import cd.wayupdotdev.uza.data.model.User
 import cd.wayupdotdev.uza.destinations.NotificationScreenDestination
 import cd.wayupdotdev.uza.destinations.SettingScreenDestination
 import cd.wayupdotdev.uza.ui.screen.home.business.HomeViewModel
 import cd.wayupdotdev.uza.ui.screen.home.component.BarScreenItem
 import cd.wayupdotdev.uza.ui.screen.home.component.ChipTab
 import cd.wayupdotdev.uza.ui.screen.home.component.SearchBar
+import cd.wayupdotdev.uza.ui.screen.profile.business.ProfileState
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -47,6 +49,7 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
 
     val context = LocalContext.current
     val posts by viewModel.data.collectAsState()
+    val state by viewModel.state.collectAsState()
 
     BackHandler {
         (context as? Activity)?.finish()
@@ -59,6 +62,8 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
     val gridItemsr = listOf("Grid 1", "Grid 2", "Grid 3", "Grid 4", "Grid 5", "Grid 5", "Grid 5", "Grid 5", "Grid 5")
     val cols = 2
 
+
+
     LazyColumn(
         contentPadding = PaddingValues(12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -66,14 +71,28 @@ fun HomeScreen(navigator: DestinationsNavigator, viewModel: HomeViewModel = hilt
         horizontalAlignment = Alignment.Start,
     ) {
         item {
-            BarScreenItem(
-                onProfileBtnClicked = {
-                    val intent = Intent(context, AuthActivity::class.java)
-                    context.startActivity(intent)
-                },
-                onNotificationBtnClicked = { navigator.navigate(NotificationScreenDestination) },
-                onSettingsBtnClicked = { navigator.navigate(SettingScreenDestination) }
-            )
+            if (state is ProfileState.Success) {
+                val user = (state as ProfileState.Success).user
+                BarScreenItem(
+                    user = user,
+                    onProfileBtnClicked = {
+                        val intent = Intent(context, AuthActivity::class.java)
+                        context.startActivity(intent)
+                    },
+                    onNotificationBtnClicked = { navigator.navigate(NotificationScreenDestination) },
+                    onSettingsBtnClicked = { navigator.navigate(SettingScreenDestination) }
+                )
+            }else {
+                BarScreenItem(
+                    user = User(),
+                    onProfileBtnClicked = {
+                        val intent = Intent(context, AuthActivity::class.java)
+                        context.startActivity(intent)
+                    },
+                    onNotificationBtnClicked = { navigator.navigate(NotificationScreenDestination) },
+                    onSettingsBtnClicked = { navigator.navigate(SettingScreenDestination) }
+                )
+            }
         }
 
         item {
