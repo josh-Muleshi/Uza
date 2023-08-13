@@ -13,13 +13,6 @@ it's an online sales application for all kinds of business, from clothing sales 
 <br/>
 <br/>
 
-# ⚠️.  Problem
-
-
-
-<br/>
-<br/>
-
 
 # 🎯.  Targeted UN SDG’s
 
@@ -43,13 +36,6 @@ it's an online sales application for all kinds of business, from clothing sales 
 # 🌊.  Flow Chart
 
 <img width="100%" alt="Screenshot 2023-03-30 at 9 41 22 PM" src="https://user-images.githubusercontent.com/52617204/228844813-f1bab96d-cb79-4c04-9a65-1dffdf94bc04.png">
-
-<br/>
-<br/>
-
-# 🤖.  **API Documentation**
-
-<img width="100%" alt="Screenshot 2023-03-30 at 9 53 44 PM" src="https://user-images.githubusercontent.com/52617204/228844853-5f0ad527-29e5-489f-8137-aa9a9de058a6.png">
 
 <br/>
 <br/>
@@ -94,7 +80,15 @@ it's an online sales application for all kinds of business, from clothing sales 
 
 # 🏃‍♂️.  How to Use
 
-
+<img width="30%" height="600.xp" alt="Screenshot from 2023-08-12 10-23-31" src="https://github.com/josh-Muleshi/Uza/assets/60498337/90c360e3-0425-40a4-a8a8-294a45581ec8"></img>
+<img width="30%" height="600.xp" alt="Screenshot from 2023-08-12 10-23-41" src="https://github.com/josh-Muleshi/Uza/assets/60498337/9aa2bce7-1c65-47f4-bf1e-c7e50275e56a"></img>
+<img width="30%" height="600.xp" alt="Screenshot from 2023-08-12 10-23-51" src="https://github.com/josh-Muleshi/Uza/assets/60498337/ab87e2cb-144b-4f87-809d-c9b695e0d248"></img>
+<img width="30%" height="600.xp" alt="Screenshot from 2023-08-12 10-24-03" src="https://github.com/josh-Muleshi/Uza/assets/60498337/8b4bc348-5299-45e1-b0c3-a7e418f4286f"></img>
+<img width="30%" height="600.xp" alt="Screenshot from 2023-08-12 10-25-00" src="https://github.com/josh-Muleshi/Uza/assets/60498337/63e0c183-8c4f-4833-909f-98bb74c8c359"></img>
+<img width="30%" height="600.xp" alt="Screenshot from 2023-08-12 10-19-58" src="https://github.com/josh-Muleshi/Uza/assets/60498337/786c635c-1334-49e3-b513-c1446ba295ab"></img>
+<img width="30%" height="600.xp" alt="Screenshot from 2023-08-12 10-21-17" src="https://github.com/josh-Muleshi/Uza/assets/60498337/9edd4f90-001f-49f0-9c32-1d978613e609"></img>
+<img width="30%" height="600.xp" alt="Screenshot from 2023-08-12 10-22-23" src="https://github.com/josh-Muleshi/Uza/assets/60498337/cdfa4041-f8ff-463a-8c42-282d682193b8"></img>
+<img width="30%" height="600.xp" alt="Screenshot from 2023-08-12 10-20-42" src="https://github.com/josh-Muleshi/Uza/assets/60498337/916a51aa-f0cc-46a5-bc59-15d0dc96b82b"></img>
 
 <br/>
 <br/>
@@ -150,3 +144,23 @@ it's an online sales application for all kinds of business, from clothing sales 
 <a href="https://play.google.com/store/apps/details?id=com.yvkalume.gifapp">
 <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="70">
 </a>
+
+<br/>
+<br/>
+
+# License
+```xml
+Copyright 2023 JMuleshi (Josh Muleshi).
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
