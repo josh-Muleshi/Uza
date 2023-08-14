@@ -2,10 +2,12 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+
     id ("kotlin-kapt")
     id ("dagger.hilt.android.plugin")
     id ("com.google.gms.google-services")
     id ("com.google.devtools.ksp") version "1.8.20-1.0.10"
+    id ("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -135,4 +137,6 @@ dependencies {
     implementation ("com.github.skydoves:landscapist-glide:1.5.0")
 
     implementation ("com.chargemap.compose:numberpicker:1.0.3")
+
+
 }
