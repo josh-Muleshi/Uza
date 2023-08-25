@@ -143,7 +143,6 @@ fun AuthScreen(navigator: DestinationsNavigator, viewModel: AuthViewModel = hilt
                 onClick = {
                     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                         .requestIdToken(Constants.Token)
-//                        .requestIdToken(Buildconfig)
                         .requestEmail()
                         .build()
                     val googleSignInClient = GoogleSignIn.getClient(context, gso)
